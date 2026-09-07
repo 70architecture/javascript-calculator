@@ -2,11 +2,15 @@ const numbers = [1, 2, 3];
 let operator = "";
 let firstNumber = 0;
 let secondNumber = 0;
+let isCalculated = false;
 
 const numberButtons = document.querySelectorAll(".number");
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function() {
-
+        if (isCalculated === true) {
+        firstNumber = 0;
+        isCalculated = false;
+        }
         if (operator === "") {
             firstNumber = Number(
                 String(firstNumber) + button.textContent
@@ -49,4 +53,5 @@ equalButton.addEventListener("click", function() {
 
     secondNumber = 0;
     operator = "";
+    isCalculated = true;
 });
