@@ -6,15 +6,22 @@ let secondNumber = 0;
 const numberButtons = document.querySelectorAll(".number");
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function() {
+
         if (operator === "") {
-            firstNumber = Number(button.textContent);
-            console.log("firstNumber:", firstNumber);
+            firstNumber = Number(
+                String(firstNumber) + button.textContent
+            );
+
+            display.textContent = firstNumber;
+
         } else {
-            secondNumber = Number(button.textContent);
-            console.log("secondNumber:", secondNumber);
+            secondNumber = Number(
+                String(secondNumber) + button.textContent
+            );
+
+            display.textContent = secondNumber;
         }
 
-        display.textContent = button.textContent;
     });
 });
 const display = document.getElementById("display");
@@ -42,9 +49,4 @@ equalButton.addEventListener("click", function() {
 
     secondNumber = 0;
     operator = "";
-});
-numberButtons.forEach(function(button) {
-    button.addEventListener("click", function() {
-        display.textContent = button.textContent;
-    });
 });
