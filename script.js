@@ -31,12 +31,17 @@ minusButton.addEventListener("click", function() {
 });
 equalButton.addEventListener("click", function() {
     if (operator === "+") {
-        display.textContent = firstNumber + secondNumber;
+        firstNumber = firstNumber + secondNumber;
     }
 
     if (operator === "-") {
-        display.textContent = firstNumber - secondNumber;
+        firstNumber = firstNumber - secondNumber;
     }
+
+    display.textContent = firstNumber;
+
+    secondNumber = 0;
+    operator = "";
 });
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function() {
