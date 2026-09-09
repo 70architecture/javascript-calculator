@@ -28,6 +28,7 @@ const minusButton = document.getElementById("minus");
 const multiplyButton = document.getElementById("multiply");
 const dividebutton = document.getElementById("divide");
 const equalButton = document.getElementById("equal");
+const clearButton = document.getElementById("clear");
 
 plusButton.addEventListener("click", function () {
   operator = "+";
@@ -44,6 +45,13 @@ multiplyButton.addEventListener("click", function () {
 dividebutton.addEventListener("click", function (){
   operator = "÷";
   isCalculated = false;
+});
+clearButton.addEventListener("click", function() {
+    firstNumber = 0;
+    secondNumber = 0;
+    operator = "";
+    isCalculated = false;
+    display.textContent = 0;
 });
 
 equalButton.addEventListener("click", function () {
