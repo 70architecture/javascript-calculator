@@ -31,6 +31,7 @@ numberButtons.forEach(function(button) {
 const display = document.getElementById("display");
 const plusButton = document.getElementById("plus");
 const minusButton = document.getElementById("minus");
+const multiplyButton = document.getElementById("multiply");
 const equalButton = document.getElementById("equal");
 
 plusButton.addEventListener("click", function() {
@@ -40,6 +41,9 @@ plusButton.addEventListener("click", function() {
 minusButton.addEventListener("click", function() {
     operator = "-";
 });
+multiplyButton.addEventListener("click", function() {
+    operator = "*";
+});
 equalButton.addEventListener("click", function() {
     if (operator === "+") {
         firstNumber = firstNumber + secondNumber;
@@ -48,6 +52,9 @@ equalButton.addEventListener("click", function() {
     if (operator === "-") {
         firstNumber = firstNumber - secondNumber;
     }
+    if (operator === "*") {
+    firstNumber = firstNumber * secondNumber;
+}
 
     display.textContent = firstNumber;
 
