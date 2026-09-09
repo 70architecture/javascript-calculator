@@ -31,16 +31,19 @@ const equalButton = document.getElementById("equal");
 
 plusButton.addEventListener("click", function () {
   operator = "+";
-  console.log(operator);
+  isCalculated = false;
 });
 minusButton.addEventListener("click", function () {
   operator = "-";
+  isCalculated = false;
 });
 multiplyButton.addEventListener("click", function () {
   operator = "*";
+  isCalculated = false;
 });
 dividebutton.addEventListener("click", function (){
   operator = "÷";
+  isCalculated = false;
 });
 
 equalButton.addEventListener("click", function () {
