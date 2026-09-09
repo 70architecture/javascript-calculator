@@ -29,6 +29,7 @@ const multiplyButton = document.getElementById("multiply");
 const dividebutton = document.getElementById("divide");
 const equalButton = document.getElementById("equal");
 const clearButton = document.getElementById("clear");
+const decimalButton = document.getElementById("decimal");
 
 plusButton.addEventListener("click", function () {
   operator = "+";
@@ -52,6 +53,22 @@ clearButton.addEventListener("click", function() {
     operator = "";
     isCalculated = false;
     display.textContent = 0;
+});
+decimalButton.addEventListener("click", function() {
+    display.textContent = display.textContent + ".";
+});
+decimalButton.addEventListener("click", function() {
+    if (operator === "") {
+        if (!String(firstNumber).includes(".")) {
+            firstNumber = String(firstNumber) + ".";
+            display.textContent = firstNumber;
+        }
+    } else {
+        if (!String(secondNumber).includes(".")) {
+            secondNumber = String(secondNumber) + ".";
+            display.textContent = secondNumber;
+        }
+    }
 });
 
 equalButton.addEventListener("click", function () {
