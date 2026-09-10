@@ -82,9 +82,13 @@ equalButton.addEventListener("click", function () {
     firstNumber = firstNumber * secondNumber;
   }
   if (operator === "÷") {
-    firstNumber = firstNumber / secondNumber;
-  }
+    if (secondNumber === 0) {
+        display.textContent = "Error";
+        return;
+    }
 
+    firstNumber = firstNumber / secondNumber;
+}
   display.textContent = firstNumber;
 
   secondNumber = 0;
