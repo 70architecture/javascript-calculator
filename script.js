@@ -32,18 +32,34 @@ const clearButton = document.getElementById("clear");
 const decimalButton = document.getElementById("decimal");
 
 plusButton.addEventListener("click", function () {
+  if (operator !== "") {
+    calculate();
+  }
+
   operator = "+";
   isCalculated = false;
 });
 minusButton.addEventListener("click", function () {
+  if (operator !== "") {
+    calculate();
+  }
+
   operator = "-";
   isCalculated = false;
 });
 multiplyButton.addEventListener("click", function () {
+  if (operator !== "") {
+    calculate();
+  }
+
   operator = "*";
   isCalculated = false;
 });
-dividebutton.addEventListener("click", function (){
+dividebutton.addEventListener("click", function () {
+  if (operator !== "") {
+    calculate();
+  }
+
   operator = "÷";
   isCalculated = false;
 });
@@ -71,24 +87,40 @@ decimalButton.addEventListener("click", function() {
     }
 });
 
-equalButton.addEventListener("click", function () {
+function calculate() {
   if (operator === "+") {
     firstNumber = firstNumber + secondNumber;
   }
+
   if (operator === "-") {
     firstNumber = firstNumber - secondNumber;
   }
+
   if (operator === "*") {
     firstNumber = firstNumber * secondNumber;
   }
+
   if (operator === "÷") {
     if (secondNumber === 0) {
-        display.textContent = "Error";
-        return;
+      display.textContent = "Error";
+      return;
     }
 
     firstNumber = firstNumber / secondNumber;
+  }
+
+  secondNumber = 0;
+  display.textContent = firstNumber;
 }
+
+equalButton.addEventListener("click", function () {
+  if (operator !== "") {
+    calculate();
+  }
+
+  operator = "";
+  isCalculated = true;
+});
   display.textContent = firstNumber;
 
   secondNumber = 0;
